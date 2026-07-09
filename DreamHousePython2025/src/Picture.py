@@ -3,6 +3,8 @@ from tkinter import ttk
 from Square import Square
 from Triangle import Triangle
 from Circle import Circle
+from Rectangle import Rectangle
+from Oval import Oval
 
 
 class Picture:
@@ -21,8 +23,10 @@ class Picture:
 
         self.wall = None
         self.window = None
+        self.door = None
         self.roof = None
         self.sun = None
+        self.pool = None
 
         self.draw()
 
@@ -37,10 +41,20 @@ class Picture:
         self.window.move_vertical(100)
         self.window.make_visible()
 
+        self.door = Rectangle(canvas=self.canvas, height=30, width=55, color="brown", fill="brown", line=1)
+        self.door.move_horizontal(110)
+        self.door.move_vertical(120)
+        self.door.make_visible()
+
         self.roof = Triangle(canvas=self.canvas, height=75, width=150, color="green", fill="green", line=2)
         self.roof.move_horizontal(35)
         self.roof.move_vertical(113)
         self.roof.make_visible()
+
+        self.pool = Oval(canvas=self.canvas, height=170, width=80, color="blue", fill="blue", line=1)
+        self.pool.move_horizontal(400)
+        self.pool.move_vertical(150)
+        self.pool.make_visible()
 
         self.sun = Circle(canvas=self.canvas, diameter=60, color="yellow", fill="yellow", line=1)
         self.sun.move_horizontal(200)
